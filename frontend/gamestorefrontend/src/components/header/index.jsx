@@ -97,7 +97,7 @@ const Header = (props) => {
           }
         </ul>
         <Popup />
-        {/* <span>欢迎访问：电脑商城</span> */}
+        {/* <span>欢迎访问：游戏商城</span> */}
       </div>
     </header>
   )
