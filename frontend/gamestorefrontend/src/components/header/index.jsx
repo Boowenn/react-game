@@ -66,7 +66,7 @@ const Header = (props) => {
   return (
     <header className={styles.header}>
       <div className={styles['header-wrap']}>
-        <h3 onClick={() => handleHome()}>电脑商城</h3>
+        <h3 onClick={() => handleHome()}>游戏商城</h3>
         <div className={styles['input-box']}>
           <input type="text" value={value} onChange={(e) => handleChange(e)} placeholder="搜索商品"/>
         </div>
