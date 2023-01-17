@@ -53,7 +53,7 @@ export default function DetailPage(props) {
       <div className={styles.inner}>
         <img src={msg && msg.imageUrl} alt=""/>
         <div>
-          学员售价: ¥{ msg && msg.price }
+          售价: ¥{ msg && msg.price }
         </div>
         数量: 
         <div className={styles.inputNum}>
