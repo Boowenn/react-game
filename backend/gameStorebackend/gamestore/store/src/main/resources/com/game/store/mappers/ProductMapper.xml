@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.game.store.mappers.ProductMapper">
+<!--    List<Product> findHotList();-->
+    <select id="findHotList" resultType="com.game.store.entity.Product">
+        SELECT * FROM t_product WHERE status = 1 ORDER BY priority DESC
+    </select>
+<!--    List<Product> findNewProductList();-->
+    <select id="findNewProductList" resultType="com.game.store.entity.Product">
+        SELECT * FROM t_product WHERE status = 1 AND category_id = 163 ORDER BY modified_time DESC LIMIT 0,4
+    </select>
+
+<!--    Product findProductById(Integer id);-->
+    <select id="findProductById" resultType="com.game.store.entity.Product">
+        SELECT id,title,price,image,sell_point,status FROM t_product WHERE id = #{id}
+    </select>
+
+<!--    List<Product> findProductByTitle(String title);-->
+    <select id="findProductByTitle" resultType="com.game.store.entity.Product">
+        SELECT id,title,sell_point,price,image
+        FROM t_product
+        WHERE STATUS = 1
+        AND title LIKE '%${title}%'
+        ORDER BY priority DESC
+    </select>
+
+<!--    <select id="getProduct" resultType="com.game.store.entity.Product">-->
+<!--        SELECT * FROM t_product LIMIT 0, 20-->
+<!--    </select>-->
+
+    <select id="getProduct" resultType="com.game.store.entity.Product">
+        SELECT * FROM t_product WHERE status = 1
+    </select>
+
+    <insert id="addProduct" useGeneratedKeys="true" keyProperty="id">
+       INSERT INTO t_product(
+        title,price,
+        num,image_url,
+        created_user,
+        created_time,
+        modified_user,
+        modified_time
+        )VALUES (
+        #{title},#{price},
+        #{num},#{imageUrl},
+        'admin',
+        '2017-10-25 15:08:55',
+        'admin',
+        '2017-10-25 15:08:55'
+        )
+    </insert>
+
+    <update id="deleteProduct">
+        UPDATE t_product
+        SET
+            status=3
+
+        WHERE
+            id = #{id}
+    </update>
+
+    <update id="updateProduct">
+        UPDATE t_product
+        SET
+            title=#{title},
+            price=#{price},
+            num=#{num},
+            image_url=#{imageUrl}
+
+        WHERE
+            id = #{id}
+    </update>
+</mapper>
