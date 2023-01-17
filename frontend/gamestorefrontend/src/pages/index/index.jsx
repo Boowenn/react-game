@@ -78,7 +78,7 @@ export default function IndexPage() {
         }
       </div>
       <footer>
-        <h3>DNSC.CN电脑商城</h3>
+        <h3>游戏商城</h3>
       </footer>
     </div>
   );
