@@ -1,6 +1,0 @@
-游戏商城前端
-管理员页面 admin/home
-账号密码 admin admin
-
-在.umirc.js文件中修改自己ip地址
-utils的index.js中修改自己的ip地址

@@ -1,1 +1,0 @@
-export const assetAPI = 'http://xxx:8080'; // 资源api
